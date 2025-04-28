@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-		//Simple Node Class
+//Simple Node Class
 class Node {
 public:
 	int data;
@@ -10,7 +10,7 @@ public:
 		next = NULL;
 	}
 };
-		//Making List of Nodes
+//Making List of Nodes
 class List {
 private:
 	Node* head;
@@ -19,10 +19,10 @@ public:
 	List() {
 		head = tail = NULL;
 	}
-		//Pushing Node to Front
+	//Pushing Node to Front
 	void pushFront(int num) {
 		Node* nvaNode = new Node(num);
-		if (head == NULL) {
+		if (isEmpty()) {
 			head = tail = nvaNode;
 			return;
 		}
@@ -31,10 +31,10 @@ public:
 			head = nvaNode;
 		}
 	}
-		//Pushing Node to End
+	//Pushing Node to End
 	void pushBack(int num) {
 		Node* nvaNode = new Node(num);
-		if (head == NULL) {
+		if (isEmpty()) {
 			head = tail = nvaNode;
 		}
 		else {
@@ -42,9 +42,9 @@ public:
 			tail = nvaNode;
 		}
 	}
-		//Deleting First Node
+	//Deleting First Node
 	void popFront() {
-		if (head == NULL) {
+		if (isEmpty()) {
 			cout << "List is Empty..\n";
 			return;
 		}
@@ -55,9 +55,9 @@ public:
 			delete temp;
 		}
 	}
-		//Deleting Last Node
+	//Deleting Last Node
 	void popBack() {
-		if (head == NULL) {
+		if (isEmpty()) {
 			cout << "List is Empty..\n";
 		}
 		else {
@@ -70,7 +70,7 @@ public:
 			tail = temp;
 		}
 	}
-		//Adding Node to Middle
+	//Adding Node to Middle
 	void insert(int val, int index) {
 		if (index < 0) {
 			return;
@@ -88,7 +88,7 @@ public:
 			temp->next = nvaNode;
 		}
 	}
-		//Searching Value from List
+	//Searching Value from List
 	void search(int val) {
 		Node* temp = head;
 		int index = 0;
@@ -103,9 +103,9 @@ public:
 		cout << "Number not Found\n";
 		return;
 	}
-		//Printing the List
+	//Printing the List
 	void print() {
-		if (head == NULL) {
+		if (isEmpty()) {
 			cout << "List is Empty..\n";
 			return;
 		}
@@ -116,6 +116,15 @@ public:
 				temp = temp->next;
 			}
 			cout << endl;
+		}
+	}
+
+	bool isEmpty() {
+		if (head == NULL) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 };
